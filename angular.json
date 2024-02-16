@@ -89,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dashboard-ambiensa:build:production"
+              "buildTarget": "dashboard-ambiensa:build:production"
             },
             "development": {
-              "browserTarget": "dashboard-ambiensa:build:development"
+              "buildTarget": "dashboard-ambiensa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dashboard-ambiensa:build"
+            "buildTarget": "dashboard-ambiensa:build"
           }
         },
         "test": {
