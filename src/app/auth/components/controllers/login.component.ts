@@ -62,17 +62,7 @@ export class LoginComponent {
             let saveToken = localStorage.getItem("auth_token");
             let tokenPayload: any = saveToken? decode(saveToken) : "";
             console.log(tokenPayload);
-            if (tokenPayload.user.tipoUsuario === "Beneficiario") {
-              this.router.navigate(['admin/dashboard/beneficiario']);
-            } else if (tokenPayload.user.tipoUsuario === "AfiliadoTitular") {
-              this.router.navigate(['admin/dashboard/afiliadoTitular']);
-            } else if (tokenPayload.user.tipoUsuario === "Broker") {
-              this.router.navigate(['admin/dashboard/brokers']);
-            } else if (this.adminService.tieneRol()) {
-              this.router.navigate(['admin/dashboard/resumen']);
-            } else {
-              this.router.navigate(['admin/dashboard/sinrol']);
-            }
+            this.router.navigate(['admin/dashboard/inicio']);
           }
         }))
       } else if (data.apiStatus === "error" && data.loginStatus === "logout") {

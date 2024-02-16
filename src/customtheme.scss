@@ -48,12 +48,12 @@
   font-style: normal;
 }
 
-$mat-primary-color: #53bdc6;
-$mat-primary-lighter-color: #cbebee;
-$mat-primary-darker-color: #39a6b1;
-$mat-accent-color: #f39323;
-$mat-accent-lighter-color: #fbdfbd;
-$mat-accent-darker-color: #ed7615;
+$mat-primary-color: #a78a46;
+$mat-primary-lighter-color: #e5dcc8;
+$mat-primary-darker-color: #8c6d2f;
+$mat-accent-color: #37385f;
+$mat-accent-lighter-color: #c3c3cf;
+$mat-accent-darker-color: #232443;
 $mat-warn-color: #ff0000;
 $mat-warn-lighter-color: #ffb3b3;
 $mat-warn-darker-color: #ff0000;
@@ -97,7 +97,7 @@ $mat-light-theme-foreground: (
   accent-text:       $dark-accent-text,
   icon:              $dark-accent-text,
   icons:             $dark-accent-text,
-  text:              #5c5b5c,
+  text:              #989898,
   slider-min:        $dark-primary-text,
   slider-off:        rgba($dark-text, 0.26),
   slider-off-active: $dark-disabled-text,
@@ -132,15 +132,15 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #0481a7;
+$light-background:    #37385f;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
-$dark-bg-tooltip:     lighten(#5c5b5c, 20%);
-$dark-bg-alpha-4:     rgba(#5c5b5c, 0.04);
-$dark-bg-alpha-12:    rgba(#5c5b5c, 0.12);
+$dark-bg-tooltip:     lighten(#989898, 20%);
+$dark-bg-alpha-4:     rgba(#989898, 0.04);
+$dark-bg-alpha-12:    rgba(#989898, 0.12);
 
 $mat-light-theme-background: (
   background:               $light-background,
@@ -161,13 +161,13 @@ $mat-light-theme-background: (
 );
 
 // Dark bg
-$dark-background:     #5c5b5c;
+$dark-background:     #989898;
 $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#0481a7, 0.04);
-$light-bg-alpha-12:   rgba(#0481a7, 0.12);
+$light-bg-alpha-4:    rgba(#37385f, 0.04);
+$light-bg-alpha-12:   rgba(#37385f, 0.12);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -194,18 +194,18 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #53bdc6;
-  --primary-lighter-color: #cbebee;
-  --primary-darker-color: #39a6b1;
+  --primary-color: #a78a46;
+  --primary-lighter-color: #e5dcc8;
+  --primary-darker-color: #8c6d2f;
   --text-primary-color: #{$dark-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$dark-primary-text};
 }
 $mat-primary: (
-  main: #53bdc6,
-  lighter: #cbebee,
-  darker: #39a6b1,
-  200: #53bdc6, // For slide toggle,
+  main: #a78a46,
+  lighter: #e5dcc8,
+  darker: #8c6d2f,
+  200: #a78a46, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
@@ -217,18 +217,18 @@ $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #f39323;
-  --accent-lighter-color: #fbdfbd;
-  --accent-darker-color: #ed7615;
+  --accent-color: #37385f;
+  --accent-lighter-color: #c3c3cf;
+  --accent-darker-color: #232443;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }
 $mat-accent: (
-  main: #f39323,
-  lighter: #fbdfbd,
-  darker: #ed7615,
-  200: #f39323, // For slide toggle,
+  main: #37385f,
+  lighter: #c3c3cf,
+  darker: #232443,
+  200: #37385f, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
@@ -295,7 +295,7 @@ button {
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
-  color: #5c5b5c;
+  color: #989898;
 }
 
 .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label {
@@ -303,7 +303,7 @@ button {
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
-  color: #5c5b5c;
+  color: #989898;
 }
 
 .mat-standard-chip {
@@ -322,7 +322,7 @@ button {
 .mat-typography {
   font-family: Poppins, sans-serif;
   font-weight: normal; /* Otras opciones: bold, 300, 500, 600 */
-  color: #5c5b5c;
+  color: #989898;
 }
 
 .mat-mdc-nav-list {
@@ -344,12 +344,12 @@ button {
 }
 
 .mat-drawer-container {
-  background: linear-gradient(90deg, #0481a7, #53bdc6);
-  color: #5c5b5c;
+  background: #37385f;
+  color: #989898;
 }
 
 .mat-drawer {
-  color: #5c5b5c;
+  color: #989898;
 }
 
 iframe {
@@ -361,7 +361,7 @@ iframe {
 }
 
 .mdc-list-item__start {
-  color: #5c5b5c !important;
+  color: #989898 !important;
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {

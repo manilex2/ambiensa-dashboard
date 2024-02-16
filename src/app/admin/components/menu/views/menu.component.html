@@ -1,61 +1,29 @@
 <mat-card class="menu-card-1">
   <mat-card-content>
     <div class="menu-container-flex-1">
-      <img class="menu-logo-1" src="../../../../assets/ambiensa-fc.svg" alt="ambiensa-logo">
+      <img class="menu-logo-1" src="../../../../assets/ambiensa-fo.png" alt="ambiensa-logo">
     </div>
     <mat-nav-list class="menu-list-container-1">
-      <ng-container *ngIf="ambiensa">
-        <ng-container *ngIf="rolAmbiensa == 'A' || rolAmbiensa == 'G' || rolAmbiensa == 'C'">
-          <mat-list-item routerLink="./resumen" routerLinkActive="menu-active-1">
-            <mat-icon matListItemIcon>receipt_long</mat-icon>
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Comercial</a>
+      <mat-list-item routerLink="./inicio" routerLinkActive="menu-active-1">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Inicio</a>
+      </mat-list-item>
+      <mat-list-item routerLink="./ventas" routerLinkActive="menu-active-1">
+        <mat-icon matListItemIcon>sell</mat-icon>
+        <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Ventas</a>
+        <mat-nav-list>
+          <mat-list-item routerLink="./ventas/reporte-general" routerLinkActive="menu-active-1">
+            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Reporte General</a>
           </mat-list-item>
-        </ng-container>
-        <!-- <mat-list-item routerLink="./convenios" routerLinkActive="menu-active-1">
-            <mat-icon matListItemIcon>pie_chart</mat-icon>
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Convenios</a>
-        </mat-list-item>
-        <mat-list-item routerLink="./cobranzas" routerLinkActive="menu-active-1">
-            <mat-icon matListItemIcon>payments</mat-icon>
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Cobranzas</a>
-        </mat-list-item> 
-        <ng-container *ngIf="rolAmbiensa == 'A' || rolAmbiensa == 'G'">
-          <mat-list-item routerLink="./kpis" routerLinkActive="menu-active-1">
-            <mat-icon matListItemIcon>donut_large</mat-icon>
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>BSC</a>
+          <mat-list-item routerLink="./ventas/detalle-proyecto" routerLinkActive="menu-active-1">
+            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Detalle de Proyecto</a>
           </mat-list-item>
-        </ng-container> -->
-        <ng-container *ngIf="rolAmbiensa == 'A'">
-          <mat-list-item routerLink="./brokers-Ambiensa" routerLinkActive="menu-active-1">
-            <mat-icon matListItemIcon>notifications</mat-icon>
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Brokers</a>
-          </mat-list-item>
-        </ng-container>
-        <ng-container *ngIf="rolAmbiensa == 'A' || rolAmbiensa == 'R'">
-          <mat-list-item routerLink="./reembolsos" routerLinkActive="menu-active-1">
-            <mat-icon matListItemIcon>assignment_return</mat-icon>
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Reembolsos</a>
-          </mat-list-item>
-        </ng-container>
-      </ng-container>
-      <ng-container *ngIf="broker">
-        <mat-list-item routerLink="./brokers" routerLinkActive="menu-active-1">
-            <mat-icon matListItemIcon>notifications</mat-icon>
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Brokers</a>
-        </mat-list-item>
-      </ng-container>
-      <ng-container *ngIf="afiliadoTitular">
-        <mat-list-item routerLink="./afiliadoTitular" routerLinkActive="menu-active-1">
-          <mat-icon matListItemIcon>face</mat-icon>
-          <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Afiliado</a>
-        </mat-list-item>
-      </ng-container>
-      <ng-container *ngIf="beneficiario || afiliadoTitular">
-        <mat-list-item routerLink="./beneficiario" routerLinkActive="menu-active-1">
-          <mat-icon matListItemIcon>group</mat-icon>
-          <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Beneficiario</a>
-        </mat-list-item>
-      </ng-container>
+        </mat-nav-list>
+      </mat-list-item>
+      <mat-list-item routerLink="./marketing" routerLinkActive="menu-active-1">
+        <mat-icon matListItemIcon>monitoring</mat-icon>
+        <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Marketing</a>
+      </mat-list-item>
     </mat-nav-list>
     <div class="menu-container-flex-2">
       <button class="menu-button-1" (click)="logout()" color="warn" mat-raised-button>Cerrar Sesión<mat-icon [align]="'right'">logout</mat-icon></button>

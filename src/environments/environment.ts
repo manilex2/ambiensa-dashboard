@@ -5,12 +5,8 @@ export const environment = {
     serverTokenUrl: 'URL_SERVER_TOKEN'
   },
   powerbiConfig: {
-    resumen: 'REPORT SECTION ID RESUMEN',
-    brokers: 'REPORT SECTION ID BROKERS',
-    brokersAmbiensa: 'REPORT SECTION ID BROKERS AMBIENSA',
-    reembolsos: 'REPORT SECTION ID REEMBOLSOS',
-    bsc: 'REPORT SECTION ID BSC',
-    beneficiario: 'REPORT SECTION ID BENEFICIARIO',
-    afilTit: 'REPORT SECTION ID AFILIADO TITULAR'
+    marketing: 'REPORT SECTION ID BROKERS',
+    ventasReporteGeneral: 'REPORT SECTION ID Ventas - Reporte General',
+    ventasDetalleProyecto: 'REPORT SECTION ID Ventas - Detalle de Proyecto',
   }
 };

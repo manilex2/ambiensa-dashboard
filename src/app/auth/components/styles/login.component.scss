@@ -1,6 +1,6 @@
 .login-card-1 {
-  width: 400px;
-  height: 430px;
+  width: 430px;
+  height: 450px;
   position: absolute;
   text-align: center;
   background-color: rgba($color: #fff, $alpha: 0.1);
@@ -12,6 +12,7 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(90deg, #92c1e2, #1c182e);
 }
 
 .login-container-1 {
@@ -37,7 +38,7 @@
   margin-top: 20px;
   width: 270px;
   box-shadow: none !important;
-  height: 40px !important;
+  height: 50px !important;
   font-weight: bold;
   font-size: 18px;
   background-color: var(--accent-color) !important;
@@ -58,16 +59,16 @@
   height: 40px;
   padding-left: 25px;
   border-radius: 20px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 400;
   font-family: Poppins, Courier, monospace;
-  color: #5c5b5c
+  color: #989898;
 }
 
 .login-password-icon-1 {
   position: absolute;
   top: 245px;
-  right: 70px;
+  right: 80px;
 }
 
 .login-logo-container-1 {

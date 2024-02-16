@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../../../services/admin.service';
 import { Store } from '@ngrx/store';
 import { LOGOUT } from '../../../../auth/store/actions/login.actions';
 import { ToastrService } from 'ngx-toastr';
@@ -25,7 +24,6 @@ export class MenuComponent implements OnInit {
   token: any;
 
   constructor(
-    private adminService: AdminService,
     private store: Store,
     private toastr: ToastrService,
     private authService: AuthService,
@@ -34,11 +32,6 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = localStorage.getItem('auth_token');
-    this.ambiensa = this.adminService.esAmbiensa();
-    this.beneficiario = this.adminService.esBeneficiario();
-    this.broker = this.adminService.esBroker();
-    this.afiliadoTitular = this.adminService.esAfiliadoTitular();
-    this.rolAmbiensa = this.adminService.rolAmbiensa();
     this.tokenExpDate = this.jwtHelper.getTokenExpirationDate(this.token);
     this.loginInterval = setInterval(() => {
       this.tokenExpDate = moment(this.jwtHelper.getTokenExpirationDate(this.token));
