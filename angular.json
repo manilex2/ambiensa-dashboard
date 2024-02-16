@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dashboard-mediken": {
+    "dashboard-ambiensa": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dashboard-mediken",
+            "outputPath": "dist/dashboard-ambiensa",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -89,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dashboard-mediken:build:production"
+              "browserTarget": "dashboard-ambiensa:build:production"
             },
             "development": {
-              "browserTarget": "dashboard-mediken:build:development"
+              "browserTarget": "dashboard-ambiensa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dashboard-mediken:build"
+            "browserTarget": "dashboard-ambiensa:build"
           }
         },
         "test": {

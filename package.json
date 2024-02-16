@@ -1,11 +1,11 @@
 {
-  "name": "dashboard-mediken",
+  "name": "dashboard-ambiensa",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-mediken": "ng build --configuration=production --base-href \"/dashboard/\"",
+    "build-ambiensa": "ng build --configuration=production --base-href \"/dashboard/\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -36,6 +36,7 @@
     "powerbi-report-authoring": "^2.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "typescript": "^4.9.5",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
@@ -48,7 +49,6 @@
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.8.2"
+    "karma-jasmine-html-reporter": "~2.0.0"
   }
 }

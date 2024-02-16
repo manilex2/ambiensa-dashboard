@@ -13,11 +13,11 @@ import moment from 'moment';
   styleUrls: ['../styles/menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  mediken!: boolean;
+  ambiensa!: boolean;
   beneficiario!: boolean;
   broker!: boolean;
   afiliadoTitular!: boolean;
-  rolMediken: any;
+  rolAmbiensa: any;
   loginInterval: any;
   tokenExpDate: any;
   fechaActual: any;
@@ -34,11 +34,11 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = localStorage.getItem('auth_token');
-    this.mediken = this.adminService.esMediken();
+    this.ambiensa = this.adminService.esAmbiensa();
     this.beneficiario = this.adminService.esBeneficiario();
     this.broker = this.adminService.esBroker();
     this.afiliadoTitular = this.adminService.esAfiliadoTitular();
-    this.rolMediken = this.adminService.rolMediken();
+    this.rolAmbiensa = this.adminService.rolAmbiensa();
     this.tokenExpDate = this.jwtHelper.getTokenExpirationDate(this.token);
     this.loginInterval = setInterval(() => {
       this.tokenExpDate = moment(this.jwtHelper.getTokenExpirationDate(this.token));

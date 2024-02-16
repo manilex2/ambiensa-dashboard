@@ -19,11 +19,11 @@ export class AdminService {
     return false;
   }
 
-  esMediken() {
+  esAmbiensa() {
     this.token = localStorage.getItem('auth_token');
 
     let tokenPayload: any = this.token? decode(this.token) : false;
-    if (tokenPayload.user.tipoUsuario === "Mediken") {
+    if (tokenPayload.user.tipoUsuario === "Ambiensa") {
       return true;
     }
     return false;
@@ -49,7 +49,7 @@ export class AdminService {
     return false;
   }
 
-  rolMediken() {
+  rolAmbiensa() {
     this.token = localStorage.getItem('auth_token');
     let tokenPayload: any = this.token? decode(this.token) : false;
     return tokenPayload.user.tipo;

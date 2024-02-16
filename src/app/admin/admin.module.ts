@@ -25,7 +25,7 @@ import { ConveniosComponent } from './components/convenios/controllers/convenios
 import { CobranzasComponent } from './components/cobranzas/controllers/cobranzas.component';
 import { KpisComponent } from './components/kpis/controllers/kpis.component';
 import { BrokersComponent } from './components/brokers/controllers/brokers.component';
-import { BrokersMedikenComponent } from './components/brokers-mediken/controllers/brokers-mediken.component';
+import { BrokersAmbiensaComponent } from './components/brokers-ambiensa/controllers/brokers-ambiensa.component';
 import { ReembolsosComponent } from './components/reembolsos/controllers/reembolsos.component';
 import { BeneficiarioComponent } from './components/beneficiario/controllers/beneficiario.component';
 import { CurrentUserEffect } from './store/effects/currentuser.effects';
@@ -42,7 +42,7 @@ import { AfiliadoTitularComponent } from './components/afiliado-titular/controll
     CobranzasComponent,
     KpisComponent,
     BrokersComponent,
-    BrokersMedikenComponent,
+    BrokersAmbiensaComponent,
     ReembolsosComponent,
     BeneficiarioComponent,
     SinrolComponent,

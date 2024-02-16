@@ -19,11 +19,11 @@ export interface ConfigResponse {
 }
 
 @Component({
-  selector: 'app-brokers-mediken',
-  templateUrl: '../views/brokers-mediken.component.html',
-  styleUrls: ['../styles/brokers-mediken.component.scss']
+  selector: 'app-brokers-ambiensa',
+  templateUrl: '../views/brokers-ambiensa.component.html',
+  styleUrls: ['../styles/brokers-ambiensa.component.scss']
 })
-export class BrokersMedikenComponent implements AfterViewInit {
+export class BrokersAmbiensaComponent implements AfterViewInit {
   @ViewChild(PowerBIReportEmbedComponent)
   reportObj!: PowerBIReportEmbedComponent;
 
@@ -54,7 +54,7 @@ export class BrokersMedikenComponent implements AfterViewInit {
       background: models.BackgroundType.Transparent,
       navContentPaneEnabled: false,
     },
-    pageName: environment.powerbiConfig.brokersMediken,
+    pageName: environment.powerbiConfig.brokersAmbiensa,
   };
 
   report: any;
@@ -101,7 +101,7 @@ export class BrokersMedikenComponent implements AfterViewInit {
             background: models.BackgroundType.Transparent,
             navContentPaneEnabled: false,
           },
-          pageName: environment.powerbiConfig.brokersMediken
+          pageName: environment.powerbiConfig.brokersAmbiensa
         }
         this.datosCargados = true;
       }
