@@ -4,29 +4,28 @@
       <img class="menu-logo-1" src="../../../../assets/ambiensa-fo.png" alt="ambiensa-logo">
     </div>
     <mat-nav-list class="menu-list-container-1">
-      <mat-list-item routerLink="./inicio" routerLinkActive="menu-active-1">
-        <mat-icon matListItemIcon>home</mat-icon>
+      <mat-list-item class="menu-mat-list-item-1" routerLink="./inicio" routerLinkActive="menu-active-1">
+        <mat-icon matListItemIcon fontSet="material-icons-outlined">home</mat-icon>
         <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Inicio</a>
       </mat-list-item>
-      <mat-list-item routerLink="./ventas" routerLinkActive="menu-active-1">
-        <mat-icon matListItemIcon>sell</mat-icon>
+      <mat-list-item class="menu-mat-list-item-1" routerLink="./ventas" routerLinkActive="menu-active-1">
+        <mat-icon matListItemIcon fontSet="material-icons-outlined">sell</mat-icon>
         <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Ventas</a>
-        <mat-nav-list>
-          <mat-list-item routerLink="./ventas/reporte-general" routerLinkActive="menu-active-1">
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Reporte General</a>
-          </mat-list-item>
-          <mat-list-item routerLink="./ventas/detalle-proyecto" routerLinkActive="menu-active-1">
-            <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Detalle de Proyecto</a>
-          </mat-list-item>
-        </mat-nav-list>
       </mat-list-item>
-      <mat-list-item routerLink="./marketing" routerLinkActive="menu-active-1">
-        <mat-icon matListItemIcon>monitoring</mat-icon>
+      <mat-list-item class="menu-mat-list-item-2" routerLink="./ventas/reporte-general" routerLinkActive="menu-active-1">
+        <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Reporte General</a>
+      </mat-list-item>
+      <mat-list-item class="menu-mat-list-item-2" routerLink="./ventas/detalle-proyecto" routerLinkActive="menu-active-1">
+        <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Detalle de Proyecto</a>
+      </mat-list-item>
+      <mat-list-item class="menu-mat-list-item-1" routerLink="./marketing" routerLinkActive="menu-active-1">
+        <mat-icon matListItemIcon fontSet="material-icons-outlined">stacked_line_chart</mat-icon>
         <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Marketing</a>
       </mat-list-item>
+      <mat-list-item class="menu-mat-list-item-1" routerLink="./perfil" routerLinkActive="menu-active-1">
+        <mat-icon matListItemIcon fontSet="material-icons-outlined">group</mat-icon>
+        <a class="menu-nav-1" routerLinkActive="menu-active-1" matListItemTitle>Perfil Clientes</a>
+      </mat-list-item>
     </mat-nav-list>
-    <div class="menu-container-flex-2">
-      <button class="menu-button-1" (click)="logout()" color="warn" mat-raised-button>Cerrar Sesión<mat-icon [align]="'right'">logout</mat-icon></button>
-    </div>
   </mat-card-content>
 </mat-card>

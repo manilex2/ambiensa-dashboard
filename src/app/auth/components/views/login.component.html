@@ -23,7 +23,7 @@
         <div class="login-form-field-1">
           <input class="login-input-1" formControlName="clave" [type]="hide ? 'password' : 'text'" required placeholder="Contraseña">
           <button class="login-password-icon-1" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-icon fontSet="material-icons-outlined">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </div>
         <button class="login-button-submit" mat-raised-button color="primary" (click)="login()"  [disabled]="!loginForm.valid">Continuar</button>

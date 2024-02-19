@@ -13,5 +13,16 @@
         <p class="search-email-1"><a (href)="user.email">{{user.email}}</a></p>
       </ng-container>
     </div>
+    <div class="search-container-flex-3">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Icono para expandir menu">
+        <mat-icon fontSet="material-icons-outlined">expand_more</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button (click)="logout()" mat-menu-item>
+          <mat-icon fontSet="material-icons-outlined">logout</mat-icon>
+          <span>Cerrar Sesión</span>
+        </button>
+      </mat-menu>
+    </div>
   </div>
 </div>

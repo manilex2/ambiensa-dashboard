@@ -65,4 +65,13 @@ export class SearchComponent implements OnInit {
     }
     this.getCurrentUser();
   }
+
+  logout() {
+    this.store.dispatch(LOGOUT());
+    this.toastr.info("Cerrada la sesión, Hasta pronto.", "Login", {
+      progressBar: true,
+      timeOut: 3000,
+      positionClass: "toast-top-center"
+    })
+  }
 }

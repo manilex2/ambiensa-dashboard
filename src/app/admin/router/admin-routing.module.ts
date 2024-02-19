@@ -5,6 +5,8 @@ import { HomeComponent } from '../components/home/controllers/home.component';
 import { ReporteGeneralComponent } from '../components/ventas/controllers/reporte-general.component';
 import { DetalleProyectoComponent } from '../components/ventas/controllers/detalle-proyecto.component';
 import { VentasComponent } from '../components/ventas/controllers/ventas.component';
+import { MarketingComponent } from '../components/marketing/controllers/marketing.component';
+import { PerfilClientesComponent } from '../components/perfil-clientes/controllers/perfil-clientes.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,9 @@ const routes: Routes = [
           { path: 'reporte-general', component: ReporteGeneralComponent },
           { path: 'detalle-proyecto', component: DetalleProyectoComponent }
         ]},
-      ]}
+        { path: 'marketing', component: MarketingComponent },
+        { path: 'perfil', component: PerfilClientesComponent }
+      ]},
     ]
   },
   {

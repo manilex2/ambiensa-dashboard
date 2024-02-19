@@ -24,6 +24,8 @@ import { CurrentUserEffect } from './store/effects/currentuser.effects';
 import { DetalleProyectoComponent } from './components/ventas/controllers/detalle-proyecto.component';
 import { ReporteGeneralComponent } from './components/ventas/controllers/reporte-general.component';
 import { VentasComponent } from './components/ventas/controllers/ventas.component';
+import { MarketingComponent } from './components/marketing/controllers/marketing.component';
+import { PerfilClientesComponent } from './components/perfil-clientes/controllers/perfil-clientes.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { VentasComponent } from './components/ventas/controllers/ventas.componen
     SearchComponent,
     DetalleProyectoComponent,
     ReporteGeneralComponent,
-    VentasComponent
+    VentasComponent,
+    MarketingComponent,
+    PerfilClientesComponent
   ],
   imports: [
     CommonModule,
