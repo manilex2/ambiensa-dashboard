@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 
 const dir = "src/environments";
-const file = "environment.ts";
 const prodFile = "environment.prod.ts"; // For production deployment
 
 const content = `${process.env.PRODUCTION_DETAILS}`;
@@ -21,14 +20,13 @@ fs.access(dir, fs.constants.F_OK, (err) => {
             process.exit(1);
         }
     }
-    // Now write to file
+    // Now write to prodFile
     try {
-        fs.writeFileSync(dir + "/" + file, content);
         fs.writeFileSync(dir + "/" + prodFile, content);
         console.log("Creado satisfactoriamente en", process.cwd());
-        if (fs.existsSync(dir + "/" + file)) {
-            console.log("Archivo fue creado", path.resolve(dir + "/" + file));
-            const str = fs.readFileSync(dir + "/" + file).toString();
+        if (fs.existsSync(dir + "/" + prodFile)) {
+            console.log("Archivo fue creado", path.resolve(dir + "/" + prodFile));
+            const str = fs.readFileSync(dir + "/" + prodFile).toString();
             console.log(str);
         }
     } catch (error) {
