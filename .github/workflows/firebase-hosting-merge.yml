@@ -7,32 +7,26 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 jobs:
-  build:
+  build_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: npm i
-  copy: 
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Copiar Environment
-        run:  cp src/environments/environment.ts src/environments/environment.prod.ts
 
-      - name: Establecer Variables de entorno
-        run: |
+      - uses: actions/checkout@v4
+      - run:  cp src/environments/environment.ts src/environments/environment.prod.ts
+
+      - uses: actions/checkout@v4
+      - run: |
           sed -i "s/URL DEL SERVIDOR EXPRESS/${{ secrets.SERVERURL }}/g" ./src/environments/environment.prod.ts
           sed -i "s/URL_SERVER_TOKEN/${{ secrets.SERVERTOKENURL }}/g" ./src/environments/environment.prod.ts
           sed -i "s/REPORT SECTION ID MARKETING/${{ secrets.MARKETING }}/g" ./src/environments/environment.prod.ts
           sed -i "s/REPORT SECTION ID Ventas - Reporte General/${{ secrets.VENTASREPORTEGENERAL }}/g" ./src/environments/environment.prod.ts
           sed -i "s/REPORT SECTION ID Ventas - Detalle de Proyecto/${{ secrets.VENTASDETALLEPROYECTO }}/g" ./src/environments/environment.prod.ts
 
-  deploy:
-    needs: [build, copy]
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v4
       - run: npm run build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
