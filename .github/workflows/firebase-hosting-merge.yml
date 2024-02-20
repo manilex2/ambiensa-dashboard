@@ -14,15 +14,28 @@ jobs:
       - run: npm i
 
       - uses: actions/checkout@v4
-      - run:  cp src/environments/environment.ts src/environments/environment.prod.ts
+      - name: Copiar variables de entorno
+        run:  cp src/environments/environment.ts src/environments/environment.prod.ts
 
-      - uses: actions/checkout@v4
-      - run: |
-          sed "s#URL DEL SERVIDOR EXPRESS#${{ secrets.SERVERURL }}#g" src/environments/environment.prod.ts
-          sed "s#URL_SERVER_TOKEN#${{ secrets.SERVERTOKENURL }}#g" src/environments/environment.prod.ts
-          sed "s#REPORT SECTION ID MARKETING#${{ secrets.MARKETING }}#g" src/environments/environment.prod.ts
-          sed "s#REPORT SECTION ID Ventas - Reporte General#${{ secrets.VENTASREPORTEGENERAL }}#g" src/environments/environment.prod.ts
-          sed "s#REPORT SECTION ID Ventas - Detalle de Proyecto#${{ secrets.VENTASDETALLEPROYECTO }}#g" src/environments/environment.prod.ts
+      - name: Save environment.prod.ts as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: environment-prod
+          path: src/environments/environment.prod.ts
+
+      - name: Download environment.prod.ts artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: environment-prod
+          path: src/environments/
+
+      - name: Establecer variables nuevas
+        run: |
+          sed -i "s#URL DEL SERVIDOR EXPRESS#${{ secrets.SERVERURL }}#g" src/environments/environment.prod.ts
+          sed -i "s#URL_SERVER_TOKEN#${{ secrets.SERVERTOKENURL }}#g" src/environments/environment.prod.ts
+          sed -i "s#REPORT SECTION ID MARKETING#${{ secrets.MARKETING }}#g" src/environments/environment.prod.ts
+          sed -i "s#REPORT SECTION ID Ventas - Reporte General#${{ secrets.VENTASREPORTEGENERAL }}#g" src/environments/environment.prod.ts
+          sed -i "s#REPORT SECTION ID Ventas - Detalle de Proyecto#${{ secrets.VENTASDETALLEPROYECTO }}#g" src/environments/environment.prod.ts
 
       - uses: actions/checkout@v4
       - run: npm run build
