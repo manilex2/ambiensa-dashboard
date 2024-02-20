@@ -9,44 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Copiar variables de entorno
-        run:  cp src/environments/environment.ts src/environments/environment.prod.ts
-
-      - name: Save environment.prod.ts as artifact
-        uses: actions/upload-artifact@v2
+      - uses: actions/setup-node@v4
         with:
-          name: environment-prod
-          path: src/environments/environment.prod.ts
-
-      - name: Download environment.prod.ts artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: environment-prod
-          path: src/environments/
-
-      - name: Establecer variables nuevas
-        run: |
-          sed -i "s#URL DEL SERVIDOR EXPRESS#${{ secrets.SERVERURL }}#g" src/environments/environment.prod.ts
-          sed -i "s#URL_SERVER_TOKEN#${{ secrets.SERVERTOKENURL }}#g" src/environments/environment.prod.ts
-          sed -i "s#REPORT SECTION ID MARKETING#${{ secrets.MARKETING }}#g" src/environments/environment.prod.ts
-          sed -i "s#REPORT SECTION ID Ventas - Reporte General#${{ secrets.VENTASREPORTEGENERAL }}#g" src/environments/environment.prod.ts
-          sed -i "s#REPORT SECTION ID Ventas - Detalle de Proyecto#${{ secrets.VENTASDETALLEPROYECTO }}#g" src/environments/environment.prod.ts
-
-      - name: Save environment.prod.ts as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: environment-prod
-          path: /home/runner/work/ambiensa-dashboard/ambiensa-dashboard/src/environments/environment.prod.ts
-      
-      - name: Download environment.prod.ts artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: environment-prod
-          path: /home/runner/work/ambiensa-dashboard/ambiensa-dashboard/src/environments/
+          node-version: '20'
+      - run: node server.js
+        env:
+          PRODUCTION_DETAILS: '${{ secrets.PRODUCTION_DETAILS }}'
 
       - uses: actions/checkout@v4
-      - run: npm install && npm run build
-
+      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
