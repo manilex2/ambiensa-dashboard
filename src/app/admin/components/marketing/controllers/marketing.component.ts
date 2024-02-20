@@ -105,6 +105,11 @@ export class MarketingComponent {
 
   async ngAfterViewInit(): Promise<void> {
     this.spinner.show();
+    this.breakpointObserver
+      .observe('(max-width: 768px)')
+      .subscribe((state: BreakpointState) => {
+        this.isMobile = state.matches;
+      });
     if(!this.token) {
       this.embedReport();
     } else if (this.token) {

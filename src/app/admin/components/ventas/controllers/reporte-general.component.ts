@@ -104,6 +104,11 @@ export class ReporteGeneralComponent {
   }
 
   async ngAfterViewInit(): Promise<void> {
+    this.breakpointObserver
+      .observe('(max-width: 768px)')
+      .subscribe((state: BreakpointState) => {
+        this.isMobile = state.matches;
+      });
     this.spinner.show();
     if(!this.token) {
       this.embedReport();
