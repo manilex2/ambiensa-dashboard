@@ -41,9 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Lock Files
-package-lock.json
-
 # VS Code
 .vscode
 
