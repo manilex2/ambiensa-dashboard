@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from "@angular/material/chips";
 import { MatMenuModule } from "@angular/material/menu";
+import { LayoutModule } from "@angular/cdk/layout";
 
 @NgModule({
   declarations: [],
@@ -23,7 +24,8 @@ import { MatMenuModule } from "@angular/material/menu";
     MatListModule,
     MatToolbarModule,
     MatChipsModule,
-    MatMenuModule
+    MatMenuModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: []

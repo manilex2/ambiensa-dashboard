@@ -11,7 +11,11 @@
           <input class="login-input-1" formControlName="usuario" matInput placeholder="Ej. CÓDIGO" required>
         </mat-form-field> -->
         <div class="login-form-field-1">
-          <input class="login-input-1" formControlName="usuario" placeholder="Usuario" required>
+          <!-- <input class="login-input-1" formControlName="usuario" placeholder="Usuario" required> -->
+          <mat-form-field appearance="fill">
+            <mat-label>Usuario</mat-label>
+            <input formControlName="usuario" matInput placeholder="Introduzca su Usuario">
+          </mat-form-field>
         </div>
         <!-- <mat-form-field class="login-form-field-1">
           <mat-label>Contraseña</mat-label>
@@ -21,10 +25,15 @@
           </button>
         </mat-form-field> -->
         <div class="login-form-field-1">
-          <input class="login-input-1" formControlName="clave" [type]="hide ? 'password' : 'text'" required placeholder="Contraseña">
+          <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input formControlName="clave" [type]="hide ? 'password' : 'text'" matInput placeholder="Introduzca su contraseña">
+            <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+          <!-- <input class="login-input-1" formControlName="clave" [type]="hide ? 'password' : 'text'" required placeholder="Contraseña">
           <button class="login-password-icon-1" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
             <mat-icon fontSet="material-icons-outlined">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
+          </button> -->
         </div>
         <button class="login-button-submit" mat-raised-button color="primary" (click)="login()"  [disabled]="!loginForm.valid">Continuar</button>
       </form>

@@ -7,6 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from "ngx-toastr";
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IReportEmbedConfiguration, models, service } from "powerbi-client";
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import moment from "moment-timezone";
 
 @Component({
@@ -26,6 +27,7 @@ export class MarketingComponent {
   reportClass = "report-container";
 
   phasedEmbeddingFlag = false;
+  isMobile: boolean = false;
 
   reportConfig: IReportEmbedConfiguration = {
     type: "report",
@@ -40,6 +42,7 @@ export class MarketingComponent {
           visible: false
         }
       },
+      layoutType: this.isMobile? models.LayoutType.MobilePortrait : models.LayoutType.Master,
       background: models.BackgroundType.Transparent,
       navContentPaneEnabled: false,
     },
@@ -62,7 +65,13 @@ export class MarketingComponent {
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
     public jwtHelper: JwtHelperService,
+    private breakpointObserver: BreakpointObserver
   ) {
+    this.breakpointObserver
+      .observe('(max-width: 768px)')
+      .subscribe((state: BreakpointState) => {
+        this.isMobile = state.matches;
+      });
     if (this.token) {
       let parse = JSON.parse(this.token);
       let expiry = moment(parse.expiry).tz("America/Guayaquil").format();
@@ -83,6 +92,7 @@ export class MarketingComponent {
                 visible: false
               }
             },
+            layoutType: this.isMobile? models.LayoutType.MobilePortrait : models.LayoutType.Master,
             background: models.BackgroundType.Transparent,
             navContentPaneEnabled: false,
           },

@@ -65,11 +65,16 @@
   color: #989898;
 }
 
-.login-password-icon-1 {
+.mat-mdc-form-field {
+  height: 65px;
+  width: 100%;
+}
+
+/* .login-password-icon-1 {
   position: absolute;
   top: 245px;
   right: 80px;
-}
+} */
 
 .login-logo-container-1 {
   border-radius: 50px;
@@ -83,4 +88,11 @@
   .login-form-field-1 {
     width: 100%;
   }
+  .mat-mdc-form-field {
+    width: 80%;
+  }
+}
+
+.mdc-text-field__input {
+  height: 45px !important;
 }

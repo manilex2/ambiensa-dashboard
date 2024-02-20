@@ -401,3 +401,7 @@ mat-list-item.menu-mat-list-item-2 .mdc-list-item__content {
 .search-container-flex-3 .mdc-list-item__start {
   color: #989898 !important;
 }
+
+html {
+  --mat-form-field-container-height: 40px;
+}

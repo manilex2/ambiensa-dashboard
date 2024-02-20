@@ -61,8 +61,7 @@ export class LoginComponent {
             localStorage.setItem('auth_token', token);
             let saveToken = localStorage.getItem("auth_token");
             let tokenPayload: any = saveToken? decode(saveToken) : "";
-            console.log(tokenPayload);
-            this.router.navigate(['admin/dashboard/inicio']);
+            this.router.navigate(['admin/dashboard/ventas/reporte-general']);
           }
         }))
       } else if (data.apiStatus === "error" && data.loginStatus === "logout") {
