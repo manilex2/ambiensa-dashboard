@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Listar
-        run:  ls
+        run:  ls home
 
       - name: Copiar Environment
         run:  cp ./src/environments/environment.ts ./src/environments/environment.prod.ts
