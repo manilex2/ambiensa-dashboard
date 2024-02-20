@@ -34,8 +34,20 @@ jobs:
           sed -i "s#REPORT SECTION ID Ventas - Reporte General#${{ secrets.VENTASREPORTEGENERAL }}#g" src/environments/environment.prod.ts
           sed -i "s#REPORT SECTION ID Ventas - Detalle de Proyecto#${{ secrets.VENTASDETALLEPROYECTO }}#g" src/environments/environment.prod.ts
 
+      - name: Save environment.prod.ts as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: environment-prod
+          path: src/environments/environment.prod.ts
+
       - uses: actions/checkout@v4
       - run: npm install && npm run build
+
+      - name: Download environment.prod.ts artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: environment-prod
+          path: src/environments/
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
