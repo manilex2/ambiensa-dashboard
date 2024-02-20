@@ -5,7 +5,7 @@ export const environment = {
     serverTokenUrl: 'URL_SERVER_TOKEN'
   },
   powerbiConfig: {
-    marketing: 'REPORT SECTION ID BROKERS',
+    marketing: 'REPORT SECTION ID MARKETING',
     ventasReporteGeneral: 'REPORT SECTION ID Ventas - Reporte General',
     ventasDetalleProyecto: 'REPORT SECTION ID Ventas - Detalle de Proyecto',
   }

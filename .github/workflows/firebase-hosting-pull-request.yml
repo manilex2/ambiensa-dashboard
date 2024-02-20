@@ -8,6 +8,17 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
+      - name: Copiar Environment
+        run:  cp src/environments/environment.ts src/environments/environment.prod.ts
+
+      - name: Establecer Variables de entorno
+        run: |
+          sed -i "s/URL DEL SERVIDOR EXPRESS/${{ secrets.SERVERURL }}/g" src/environments/environment.prod.ts
+          sed -i "s/URL_SERVER_TOKEN/${{ secrets.SERVERTOKENURL }}/g" src/environments/environment.prod.ts
+          sed -i "s/REPORT SECTION ID MARKETING/${{ secrets.MARKETING }}/g" src/environments/environment.prod.ts
+          sed -i "s/REPORT SECTION ID Ventas - Reporte General/${{ secrets.VENTASREPORTEGENERAL }}/g" src/environments/environment.prod.ts
+          sed -i "s/REPORT SECTION ID Ventas - Detalle de Proyecto/${{ secrets.VENTASDETALLEPROYECTO }}/g" src/environments/environment.prod.ts
+          
       - uses: actions/checkout@v4
       - run: npm i && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
