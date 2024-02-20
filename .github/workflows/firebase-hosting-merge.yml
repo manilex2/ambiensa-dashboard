@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i -g @angular/cli && npm i
-
-      - uses: actions/checkout@v4
       - name: Copiar variables de entorno
         run:  cp src/environments/environment.ts src/environments/environment.prod.ts
 
@@ -38,7 +35,7 @@ jobs:
           sed -i "s#REPORT SECTION ID Ventas - Detalle de Proyecto#${{ secrets.VENTASDETALLEPROYECTO }}#g" src/environments/environment.prod.ts
 
       - uses: actions/checkout@v4
-      - run: npm run build
+      - run: npm install && npm run build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
