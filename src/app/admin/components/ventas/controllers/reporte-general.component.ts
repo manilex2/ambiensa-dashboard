@@ -71,44 +71,39 @@ export class ReporteGeneralComponent {
       .observe('(max-width: 768px)')
       .subscribe((state: BreakpointState) => {
         this.isMobile = state.matches;
-      });
-    if (this.token) {
-      let parse = JSON.parse(this.token);
-      let expiry = moment(parse.expiry).tz("America/Guayaquil").format();
-      let now = moment().format();
-      if (expiry < now) {
-        this.embedReport();
-      } else {
-        this.reportConfig = {
-          type: "report",
-          id: parse.embedUrl[0].reportId? parse.embedUrl[0].reportId : "",
-          embedUrl: parse.embedUrl[0].embedUrl? parse.embedUrl[0].embedUrl : "",
-          accessToken: parse.accessToken? parse.accessToken : "",
-          tokenType: models.TokenType.Embed,
-          settings: {
-            panes: {
-              filters: {
-                expanded: false,
-                visible: false
-              }
-            },
-            layoutType: this.isMobile? models.LayoutType.MobilePortrait : models.LayoutType.Master,
-            background: models.BackgroundType.Transparent,
-            navContentPaneEnabled: false,
-          },
-          pageName: environment.powerbiConfig.ventasReporteGeneral
+        if (this.token) {
+          let parse = JSON.parse(this.token);
+          let expiry = moment(parse.expiry).tz("America/Guayaquil").format();
+          let now = moment().format();
+          if (expiry < now) {
+            this.embedReport();
+          } else {
+            this.reportConfig = {
+              type: "report",
+              id: parse.embedUrl[0].reportId? parse.embedUrl[0].reportId : "",
+              embedUrl: parse.embedUrl[0].embedUrl? parse.embedUrl[0].embedUrl : "",
+              accessToken: parse.accessToken? parse.accessToken : "",
+              tokenType: models.TokenType.Embed,
+              settings: {
+                panes: {
+                  filters: {
+                    expanded: false,
+                    visible: false
+                  }
+                },
+                layoutType: this.isMobile? models.LayoutType.MobilePortrait : models.LayoutType.Master,
+                background: models.BackgroundType.Transparent,
+                navContentPaneEnabled: false,
+              },
+              pageName: environment.powerbiConfig.ventasReporteGeneral
+            }
+            this.datosCargados = true;
+          }
         }
-        this.datosCargados = true;
-      }
-    }
+      });
   }
 
   async ngAfterViewInit(): Promise<void> {
-    this.breakpointObserver
-      .observe('(max-width: 768px)')
-      .subscribe((state: BreakpointState) => {
-        this.isMobile = state.matches;
-      });
     this.spinner.show();
     if(!this.token) {
       this.embedReport();
@@ -124,25 +119,34 @@ export class ReporteGeneralComponent {
 
   async embedReport(): Promise<void> {
     try {
-      const reportUrl = environment.apiConfig.serverTokenUrl;
-      this.httpService.getEmbedConfig(reportUrl).subscribe({
-        next: (response) => {
-          this.reportConfig = {
-            ...this.reportConfig,
-            id: response.embedUrl[0].reportId,
-            embedUrl: response.embedUrl[0].embedUrl,
-            accessToken: response.accessToken,
-          };
-          localStorage.setItem('powerbi_report_token', JSON.stringify(response));
-          this.datosCargados = true;
-        },
-        error: (error) => {
-          console.log(error);
-          this.toastr.error("Ha habido un error al obtener el token", "Error PowerBI", {
-            progressBar: true
-          })
-          this.spinner.hide();
-        },
+      this.breakpointObserver
+      .observe('(max-width: 768px)')
+      .subscribe((state: BreakpointState) => {
+        this.isMobile = state.matches;
+        const reportUrl = environment.apiConfig.serverTokenUrl;
+        this.httpService.getEmbedConfig(reportUrl).subscribe({
+          next: (response) => {
+            this.reportConfig = {
+              ...this.reportConfig,
+              id: response.embedUrl[0].reportId,
+              embedUrl: response.embedUrl[0].embedUrl,
+              accessToken: response.accessToken,
+              settings: {
+                ...this.reportConfig.settings,
+                layoutType: this.isMobile? models.LayoutType.MobilePortrait : models.LayoutType.Master,
+              }
+            };
+            localStorage.setItem('powerbi_report_token', JSON.stringify(response));
+            this.datosCargados = true;
+          },
+          error: (error) => {
+            console.log(error);
+            this.toastr.error("Ha habido un error al obtener el token", "Error PowerBI", {
+              progressBar: true
+            })
+            this.spinner.hide();
+          },
+        });
       });
     } catch (error) {
       /* this.displayMessage = `Failed to fetch config for report. ${JSON.parse(error)}`; */
